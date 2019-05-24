@@ -1,0 +1,25 @@
+storage: rbd
+
+conf:
+  glance:
+    DEFAULT:
+      enable_v1_api: True
+      enable_v2_registry: True
+    glance_store:
+      rbd_store_crush_rule: replicated_ruleset
+
+volume:
+  class_name: rook-ceph-block
+  size: 2Gi
+
+ceph_client:
+  configmap: rook-ceph-config
+  user_secret_name: rook-ceph-admin-keyring
+
+manifests:
+  deployment_registry: true
+  ingress_api: true
+  ingress_registry: true
+  pdb_registry: true
+  service_ingress_registry: true
+  service_registry: true

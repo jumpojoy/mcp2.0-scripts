@@ -1,0 +1,17 @@
+ceph_client:
+  configmap: rook-ceph-config
+  user_secret_name: rook-ceph-admin-keyring
+
+conf:
+  ceph:
+    enabled: true
+    admin_keyring:
+    cinder:
+      user: "cinder"
+#      keyring: AQAHkNFcy0NJLhAAgirzRZJTb35tbwhbMkrIAw==
+#      keyring: null
+      secret_uuid: 457eb676-33da-42ec-9a8c-9293d545c337
+  nova:
+    libvirt:
+      cpu_mode: custom
+      virt_type: qemu
